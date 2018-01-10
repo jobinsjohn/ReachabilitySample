@@ -24,7 +24,7 @@ class MyReachability: NSObject {
     
     // MARK: - Properties
     private var networkReachability: SCNetworkReachability?
-    private var notifying = false
+    private var notifyingCheck = false
     
     private var flags: SCNetworkReachabilityFlags {
         
@@ -133,7 +133,7 @@ class MyReachability: NSObject {
     
     func startNotifier() -> Bool {
         
-        guard notifying == false else {
+        guard notifyingCheck == false else {
             return false
         }
         
@@ -159,16 +159,16 @@ class MyReachability: NSObject {
         
         guard SCNetworkReachabilityScheduleWithRunLoop(reachability, CFRunLoopGetCurrent(), CFRunLoopMode.defaultMode.rawValue) == true else { return false }
         
-        notifying = true
-        return notifying
+        notifyingCheck = true
+        return notifyingCheck
     }
     
     func stopNotifier() {
         
-        if let reachabilityObj = networkReachability, notifying == true {
+        if let reachabilityObj = networkReachability, notifyingCheck == true {
             
             SCNetworkReachabilityUnscheduleFromRunLoop(reachabilityObj, CFRunLoopGetCurrent(), CFRunLoopMode.defaultMode as! CFString)
-            notifying = false
+            notifyingCheck = false
         }
     }
     
