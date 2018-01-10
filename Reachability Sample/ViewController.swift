@@ -32,10 +32,10 @@ class ViewController: UIViewController {
     
     // MARK: - Methods
     func checkReachability() {
-        guard let r =  reachabilityObj else {
+        guard let netConnect =  reachabilityObj else {
             return
         }
-        if r.isReachable {
+        if netConnect.isReachable {
             view.backgroundColor = UIColor.green
         } else {
             view.backgroundColor = UIColor.red
