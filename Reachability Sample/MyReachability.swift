@@ -149,9 +149,9 @@ class MyReachability: NSObject {
                 
                 if infoObject is MyReachability {
                     
-                    let networkReachability = infoObject as! MyReachability
+                    let networkReachabilityObj = infoObject as! MyReachability
                     
-                    NotificationCenter.default.post(name: Notification.Name(rawValue: ReachabilityDidChangeNotificationName), object: networkReachability)
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: ReachabilityDidChangeNotificationName), object: networkReachabilityObj)
                 }
             }
             
