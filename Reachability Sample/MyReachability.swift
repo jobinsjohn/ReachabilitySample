@@ -160,6 +160,7 @@ class MyReachability: NSObject {
         guard SCNetworkReachabilityScheduleWithRunLoop(reachability, CFRunLoopGetCurrent(), CFRunLoopMode.defaultMode.rawValue) == true else { return false }
         
         notifyingCheck = true
+        
         return notifyingCheck
     }
     
@@ -168,6 +169,7 @@ class MyReachability: NSObject {
         if let reachabilityObj = networkReachability, notifyingCheck == true {
             
             SCNetworkReachabilityUnscheduleFromRunLoop(reachabilityObj, CFRunLoopGetCurrent(), CFRunLoopMode.defaultMode as! CFString)
+            
             notifyingCheck = false
         }
     }
