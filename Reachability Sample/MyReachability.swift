@@ -20,8 +20,8 @@ enum ReachabilityStatus {
     
 }
 
-class MyReachability: NSObject {
-    
+class MyReachability: NSObject
+{
     // MARK: - Properties
     private var networkReachability: SCNetworkReachability?
     private var notifyingCheck = false
